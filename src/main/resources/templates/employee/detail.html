@@ -5,7 +5,7 @@
     <title>DailyReportSystem</title>
 </head>
 <body>
-    <h1 th:text="'id:'+${employee.id}+'の従業員の詳細ページ'"> </h1>
+    <h1 th:text="'id:'+${employee.id}+'  '+${employee.name}+'の詳細'"> </h1>
      <table  th:object="${employee}">
 
 

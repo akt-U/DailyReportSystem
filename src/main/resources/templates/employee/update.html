@@ -34,8 +34,12 @@
         </select>
         <br>
         <input type="submit" value="更新実行">
+        <br>
         <a th:href="@{/employee/list}">更新せずに一覧に戻る</a>
-       　<a th:href="@{/employee/delete/{id}(id=${employee.id})}">この従業員情報を削除する</a>
+        <br>
+        <a th:href="@{/employee/detail/{id}(id=${employee.id})}">詳細へ戻る</a>
+       　<br>
+        <a th:href="@{/employee/delete/{id}(id=${employee.id})}">この従業員情報を削除する</a>
     </form>
 </body>
 </html>
