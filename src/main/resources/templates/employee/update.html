@@ -11,7 +11,7 @@
     <form method="post" th:action="@{/employee/update/{id}/(id=${employee.id})}" th:object="${employee}">
 
         <label>社員番号</label>
-        <input type="text" th:field="*{authentication.code}" th:errorclass="err" readonl>
+        <input type="text" th:field="*{authentication.code}" th:errorclass="err" readonly>
         <span th:errors="*{authentication.code}" class="err"></span>
         <br>
         <label>氏名</label>

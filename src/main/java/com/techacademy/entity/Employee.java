@@ -57,13 +57,14 @@ public class Employee {
     @Valid
     private Authentication authentication;
 
-    //@PreRemove
-    //@Transactional
-    //private void preRemove() {
+    @PreRemove
+    @Transactional
+    private void preRemove() {
         // 認証エンティティからuserを切り離す
-      //////  if (authentication!=null) {
-      //      authentication.setEmployee(null);
+        if (authentication!=null) {
+            authentication.setEmployee(null);
 
     }
 
-
+    }
+}
