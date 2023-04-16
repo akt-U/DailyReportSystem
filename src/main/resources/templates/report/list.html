@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body><h1>日報管理システム</h1>
+
+        <h2><a th:href="@{/employee/list}">従業員管理システム</a></h2>
+        <h2><a th:href="@{/report/list}">日報管理システム</a></h2>
+        <h2>日報管理システムへようこそ</h2>
+        <table>
+            <tr>
+                <th>氏名</th>
+                <th>日付</th>
+                <th>タイトル</th>
+                <th>操作</th>
+            </tr>
+            <tr th:each="report : ${reportlist}">
+                <td th:text="${report.employee.name}"></td>
+                <td th:text="${report.reportDate}"></td>
+                <td th:text="${report.title}"></td>
+                <td><a th:href="@{/report/detail/{id}/(id=${report.id})}">詳細を見る</a></td>
+            </tr>
+        </table>
+
+
+        <form method="post" th:action="@{/logout}">
+        <input type="submit" value="ログアウト">
+    </form><br>
+    <a th:href="@{/}">トップへ戻る</a>
+    <a th:href="@{/report/register}">新規登録画面</a>
+
+</body>
+</html>

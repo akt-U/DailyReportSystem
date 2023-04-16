@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>日報 新規登録ページ</h1>
+        <form method="post" th:action="@{/report/register}" th:object="${report}">
+            <div>
+                <label for="reportDate">日付</label>
+                <input type="date" th:field="*{reportDate}" th:errorclass="err">
+            </div>
+            <span th:errors="*{reportDate}" class="err"></span>
+            <div>
+                <label for="name">氏名</label>
+                <input type="text" th:field="*{employee.name}" disabled>
+            </div>
+            <div>
+                <label for="title">タイトル</label>
+                <input type="text" th:field="*{title}" th:errorclass="err">
+            </div>
+            <span th:errors="*{title}" class="err"></span>
+            <div>
+                <label for="content">内容</label>
+                <textarea th:field="*{content}" th:errorclass="err"></textarea>
+            </div>
+            <span th:errors="*{content}" class="err"></span>
+            <div>
+                <a th:href="@{/report/list}">一覧に戻る</a>
+                <input id="submit" type="submit" value="登録">
+            </div>
+        </form>
+
+</body>
+</html>

@@ -20,6 +20,8 @@ import javax.validation.Valid;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PastOrPresent;
+
 import org.hibernate.validator.constraints.Length; // 追加
 import javax.persistence.CascadeType;
 
@@ -41,9 +43,9 @@ public class Report {
     private Integer id;
 
     /** 日報の日付null不許可 */
-    @Column(nullable = false)
-    @NotEmpty
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Column(nullable=false)
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @PastOrPresent
     private LocalDate reportDate;
 
     /** タイトル255桁。null不許可 */
@@ -64,11 +66,11 @@ public class Report {
     private Employee employee;
 
 
-    @Column(name = "created_at", nullable = false)
+    @Column(nullable=false,updatable=false)
     @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     private Date createdAt;
 
-    @Column(name = "updated_at", nullable = false)
+    @Column(nullable=false)
     @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     private Date updatedAt;
 
