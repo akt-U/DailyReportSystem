@@ -82,13 +82,13 @@ public class ReportController {
     }
     @PostMapping("/update/{id}")
     public String postUpadate(@Validated Report report, BindingResult res, Model model) {
-        Report dbReport = reportservice.getReport(report.getId());
-        dbReport.setReportDate(report.getReportDate());
-        dbReport.setTitle(report.getTitle());
-        dbReport.setContent(report.getContent());
-        dbReport.setCreatedAt(report.getCreatedAt());
-        dbReport.setUpdatedAt(new Date(new java.util.Date().getTime()));
-        reportservice.saveReport(dbReport);
+        Report upReport = reportservice.getReport(report.getId());
+        upReport.setReportDate(report.getReportDate());
+        upReport.setTitle(report.getTitle());
+        upReport.setContent(report.getContent());
+        upReport.setCreatedAt(report.getCreatedAt());
+        upReport.setUpdatedAt(new Date(new java.util.Date().getTime()));
+        reportservice.saveReport(upReport);
         return "redirect:/report/list";
     }
 }
