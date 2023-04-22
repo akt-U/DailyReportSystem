@@ -31,6 +31,12 @@ public class ReportService {
         return reportRepository.findById(id).get();
     }
 
+    public List<Report> findByEmployee(UserDetail user){
+        return reportRepository.findByEmployee(user.getEmployee());
+
+
+    }
+
     /** 日報の登録を行う */
     @Transactional
     public Report saveReport(Report report) {

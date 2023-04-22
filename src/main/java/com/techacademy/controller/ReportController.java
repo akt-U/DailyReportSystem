@@ -42,11 +42,12 @@ public class ReportController {
 
   //詳細画面表示--------------------------
     @GetMapping("/detail/{id}")
-    public String getReportdetail(@PathVariable("id") Integer id, @AuthenticationPrincipal UserDetail userdetail,Model model) {
-        if(id != null) {
+    public String getReportdetail(@ModelAttribute Report report,@PathVariable("id") Integer id, @AuthenticationPrincipal UserDetail userdetail,Model model) {
+
+        report.setEmployee(userdetail.getEmployee());
+        model.addAttribute("reports",report);
             model.addAttribute("report", reportservice.getReport(id));
 
-        }
         // employee詳細画面に遷移
         return "report/detail";
     }
